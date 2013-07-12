@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>jcvdipsum</groupId>
+  <artifactId>jcvdipsum</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20130712134639</lastUpdated>
+  </versioning>
+</metadata>
