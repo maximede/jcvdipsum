@@ -1,14 +1,18 @@
 package be.jcvdipsum;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+import org.apache.commons.lang.StringUtils;
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.bean.ColumnPositionMappingStrategy;
 import au.com.bytecode.opencsv.bean.CsvToBean;
 import be.jcvdipsum.model.Citation;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-
-import java.io.*;
-import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,9 +32,8 @@ public class JCVDIpsum {
 
 		ColumnPositionMappingStrategy strat = new ColumnPositionMappingStrategy();
 		strat.setType(Citation.class);
-		String[] columns = new String[] {"title", "body"}; // the fields to bind do in your JavaBean
+		String[] columns = new String[]{"title", "body"}; // the fields to bind do in your JavaBean
 		strat.setColumnMapping(columns);
-
 
 
 		CsvToBean csv = new CsvToBean();
@@ -38,9 +41,9 @@ public class JCVDIpsum {
 				getClass().getClassLoader().getResourceAsStream(
 						CITATION_FILE)));
 
-		CSVReader cvsReader = new CSVReader(reader, ',', '"',1);
+		CSVReader cvsReader = new CSVReader(reader, ',', '"', 1);
 
-		citations = csv.parse(strat,cvsReader);
+		citations = csv.parse(strat, cvsReader);
 
 		reader.close();
 
